@@ -34,7 +34,7 @@ const Profile = () => {
     sem: "",
   });
 
-  console.log(updateUser);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
