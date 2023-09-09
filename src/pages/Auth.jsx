@@ -45,7 +45,7 @@ const Auth = () => {
 
     if (auth === "REGISTER") {
       try {
-        const res = await axios.post("http://localhost:3001/auth/register", {
+        const res = await axios.post("https://gdsc-au-server.onrender.com/auth/register", {
           ...user,
         });
         setError(res.data.msg);
@@ -57,7 +57,7 @@ const Auth = () => {
     }
     if (auth === "LOGIN") {
       try {
-        const resxponse = await axios.post("http://localhost:3001/auth/login", {
+        const resxponse = await axios.post("https://gdsc-au-server.onrender.com/auth/login", {
           ...user,
         });
         setError(resxponse.data.msg);
