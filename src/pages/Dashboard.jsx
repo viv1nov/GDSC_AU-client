@@ -21,13 +21,13 @@ const Dashboard = () => {
       return navigate("/");
     }
     (async () => {
-      const res = await axios.get("http://localhost:3001/users/getAllUsers");
+      const res = await axios.get("https://gdsc-au-server.onrender.com/users/getAllUsers");
       setUsers(res.data);
     })();
 
     (async () => {
       const user = await axios.get(
-        `http://localhost:3001/users/currentUser/${userID}`
+        `https://gdsc-au-server.onrender.com/users/currentUser/${userID}`
       );
       setCurrentUser(user.data);
       setLoading(true);
