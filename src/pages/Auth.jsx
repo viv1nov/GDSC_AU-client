@@ -12,7 +12,7 @@ const Auth = () => {
     password: "",
   });
   const [error, setError] = React.useState("");
-  console.log(user);
+ 
   const toggleAuth = () => {
     if (auth === "REGISTER") {
       setAuth("LOGIN");
@@ -49,8 +49,8 @@ const Auth = () => {
           ...user,
         });
         setError(res.data.msg);
-        console.log(res.data);
-        // setAuth("LOGIN");
+        setAuth("LOGIN")
+     
       } catch (error) {
         console.log(error);
       }
