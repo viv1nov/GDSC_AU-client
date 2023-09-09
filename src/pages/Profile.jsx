@@ -15,7 +15,7 @@ const Profile = () => {
     }
     (async () => {
       const res = await axios.get(
-        `http://localhost:3001/users/currentUser/${currentUser}`
+        `https://gdsc-au-server.onrender.com/users/currentUser/${currentUser}`
       );
       setUser(res.data);
       setUpdateUser({
@@ -45,7 +45,7 @@ const Profile = () => {
     e.preventDefault();
 
     try {
-      await axios.patch(`http://localhost:3001/users/updateUser/${user._id}`, {
+      await axios.patch(`https://gdsc-au-server.onrender.com/users/updateUser/${user._id}`, {
         ...updateUser,
       });
     } catch (error) {
@@ -55,7 +55,7 @@ const Profile = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3001/users/deleteUser/${user._id}`);
+      await axios.delete(`https://gdsc-au-server.onrender.com/users/deleteUser/${user._id}`);
       navigate("/");
     } catch (error) {
       console.log(error);
