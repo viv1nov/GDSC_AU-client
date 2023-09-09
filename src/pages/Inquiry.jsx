@@ -6,7 +6,7 @@ import "../index.css";
 import { useNavigate } from "react-router-dom";
 
 const Inquiry = () => {
-  const resID = window.location.href.slice(29);
+  const resID = window.location.href.slice(37);
   const navigate = useNavigate();
   const [response, setResponse] = React.useState({});
   const [point, setPoint] = React.useState();
