@@ -16,12 +16,7 @@ const Trivia = () => {
     if (!cookie) {
       navigate("/");
     }
-    (async () => {
-      const res = await axios.get(
-        `http://localhost:3001/users/currentUser/${cookie}`
-      );
-      setUser(res.data);
-    })();
+   
   }, []);
 
   return (
@@ -38,7 +33,7 @@ const Trivia = () => {
         >
           Questions
         </button>
-        {user?.role === "Admin" && (
+        
           <button
             onClick={() => {
               setQuestion(false);
@@ -48,7 +43,7 @@ const Trivia = () => {
           >
             Responses
           </button>
-        )}
+   
       </div>
 
       {question && (
