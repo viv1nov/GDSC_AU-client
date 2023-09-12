@@ -3,10 +3,12 @@ import Navbar from "../components/Navbar";
 import Question from "../components/Question";
 import Response from "../components/Response";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Trivia = () => {
   const [question, setQuestion] = React.useState(true);
   const [response, setResponse] = React.useState(false);
+  const [user, setUser] = React.useState({});
   const navigate = useNavigate();
   const cookie = localStorage.getItem("userID");
 
@@ -14,6 +16,12 @@ const Trivia = () => {
     if (!cookie) {
       navigate("/");
     }
+    (async () => {
+      const res = await axios.get(
+        `http://localhost:3001/users/currentUser/${cookie}`
+      );
+      setUser(res.data);
+    })();
   }, []);
 
   return (
@@ -30,15 +38,17 @@ const Trivia = () => {
         >
           Questions
         </button>
-        <button
-          onClick={() => {
-            setQuestion(false);
-            setResponse(true);
-          }}
-          className="focus:underline focus:text-blue-500 focus:border-b-2-black py-2 px-3"
-        >
-          Responses
-        </button>
+        {user?.role === "Admin" && (
+          <button
+            onClick={() => {
+              setQuestion(false);
+              setResponse(true);
+            }}
+            className="focus:underline focus:text-blue-500 focus:border-b-2-black py-2 px-3"
+          >
+            Responses
+          </button>
+        )}
       </div>
 
       {question && (
