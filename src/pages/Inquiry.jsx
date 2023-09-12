@@ -44,7 +44,7 @@ const Inquiry = () => {
   };
 
   return (
-    <div className="flex bg-gray-100 w-screen flex-col h-screen  items-center ">
+    <div className="flex bg-gray-100 w-screen flex-col h-auto  items-center ">
       <div className="w-screen">
         <Navbar />
       </div>
@@ -91,7 +91,7 @@ const Inquiry = () => {
         </div>
       ) : (
         <div
-          className="flex flex-col mt-32 text-green-500  px-8 gap-10 py-3 
+          className="flex flex-col mt-32 text-green-500 h-screen px-8 gap-10 py-3 
          text-3xl rounded-lg items-center justify-around"
         >
           <button
