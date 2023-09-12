@@ -136,6 +136,9 @@ const Profile = () => {
                   className="block appearance-none w-full bg-blue-100 border-2 border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-green-500"
                   id="grid-state"
                 >
+                     <option name="Default" value="Default">
+                     Branch
+                  </option>
                   <option name="BCA" value="BCA">
                     BCA
                   </option>
@@ -186,6 +189,7 @@ const Profile = () => {
                   className="block appearance-none w-full bg-blue-100 border-2 border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-green-500"
                   id="grid-state"
                 >
+                   <option value={"Default"}>Semester</option>
                   <option value={"1st"}>1st</option>
                   <option value={"3rd"}>3rd</option>
                   <option value={"5th"}>5th</option>
