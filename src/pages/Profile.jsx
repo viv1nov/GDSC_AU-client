@@ -22,6 +22,9 @@ const Profile = () => {
         ...updateUser,
         email: res.data.email,
         name: res.data.name,
+         phone: res.data.phone,
+        branch: res.data.branch,
+        sem: res.data.sem,
       });
     })();
   }, []);
