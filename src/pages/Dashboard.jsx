@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import "../index.css";
-import { AiTwotoneStar } from "react-icons/ai/";
+import { AiFillSetting, AiTwotoneStar } from "react-icons/ai/";
 import { GrCircleInformation } from "react-icons/gr";
 import Popup from "reactjs-popup";
 import EditUser from "../components/EditUser";
@@ -14,6 +14,7 @@ const Dashboard = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const userID = localStorage.getItem("userID");
   const [isLoading, setLoading] = React.useState(false);
+
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -21,13 +22,13 @@ const Dashboard = () => {
       return navigate("/");
     }
     (async () => {
-      const res = await axios.get("https://gdsc-au-server.onrender.com/users/getAllUsers");
+      const res = await axios.get("http://localhost:3001/users/getAllUsers");
       setUsers(res.data);
     })();
 
     (async () => {
       const user = await axios.get(
-        `https://gdsc-au-server.onrender.com/users/currentUser/${userID}`
+        `http://localhost:3001/users/currentUser/${userID}`
       );
       setCurrentUser(user.data);
       setLoading(true);
@@ -61,7 +62,7 @@ const Dashboard = () => {
         <div className="lg:px-14 sm:px-4  h-auto py-1 rounded-lg lg:w-7/12 sm:w-full flex overflow-y-auto  flex-col">
           {users.map((user, index) => {
             return (
-              <div className="flex lg:gap-20 sm:gap-12 rounded-xl    bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-3  items-center">
+              <div className="flex lg:gap-20 sm:gap-12 rounded-xl  justify-between  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-4  items-center">
                 <div className="flex lg:gap-10 sm:gap-5 items-center justify-center text-2xl">
                   <p
                     className={`${
@@ -76,11 +77,6 @@ const Dashboard = () => {
                   >
                     #{index + 1}
                   </p>
-                  <img
-                    src="https://imgs.search.brave.com/9A5-7hWDwCh-3_iPxFz8CAP2V-LmLxc0GMlJdnYhe6U/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9sb2dv/ZGl4LmNvbS9sb2dv/LzMwMzU0OS5qcGc"
-                    alt="pfp"
-                    className="lg:h-16 sm:h-14 lg:w-16 sm:w-14 object-contain rounded-full"
-                  />
                 </div>
                 <p
                   className={`${
