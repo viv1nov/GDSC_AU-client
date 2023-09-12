@@ -20,7 +20,7 @@ const EditUser = ({ close, user, index }) => {
       await axios.patch(`https://gdsc-au-server.onrender.com/users/updateUser/${user._id}`, {
         ...update,
       });
-      window.location.reload();
+      
     } catch (error) {
       console.log(error);
     }
@@ -29,7 +29,7 @@ const EditUser = ({ close, user, index }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`https://gdsc-au-server.onrender.com/users/deleteUser/${user._id}`);
-      window.location.reload();
+  
     } catch (error) {
       console.log(error);
     }
