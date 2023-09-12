@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const Inquiry = () => {
   const resID = window.location.href.slice(36);
-  console.log(resID)
   const navigate = useNavigate();
   const [response, setResponse] = React.useState({});
   const [point, setPoint] = React.useState();
@@ -20,13 +19,14 @@ const Inquiry = () => {
     }
     (async () => {
       const res = await axios.get(
-        `https://gdsc-au-server.onrender.com/question/singleResponse/${resID}`
+        `http://localhost:3001/question/singleResponse/${resID}`
       );
       setResponse(res.data);
+      console.log(res.data);
     })();
     (async () => {
       const user = await axios.get(
-        `https://gdsc-au-server.onrender.com/users/singleUser/${resID}`
+        `http://localhost:3001/users/singleUser/${resID}`
       );
       setPoint(user.data.points);
     })();
@@ -34,7 +34,7 @@ const Inquiry = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`https://gdsc-au-server.onrender.com/users/updatePoints/${resID}`, {
+      await axios.put(`http://localhost:3001/users/updatePoints/${resID}`, {
         point,
       });
       setUpdated(true);
@@ -50,7 +50,7 @@ const Inquiry = () => {
       </div>
 
       {!updated ? (
-        <div className="flex flex-col w-10/12  text-black mt-32 gap-2">
+        <div className="flex flex-col w-auto   text-black mt-32 gap-2">
           <p className="my-5 text-lg bg-white py-3 px-5 shadow ">
             {response[0]?.que1}
           </p>
@@ -59,6 +59,15 @@ const Inquiry = () => {
           </p>
           <p className="my-5 text-lg bg-white py-3 px-5 shadow">
             {response[0]?.que3}
+          </p>
+          <p className="my-5 text-lg bg-white py-3 px-5 shadow">
+            {response[0]?.que4}
+          </p>
+          <p className="my-5 text-lg bg-white py-3 px-5 shadow">
+            {response[0]?.que5}
+          </p>
+          <p className="my-5 text-lg bg-white py-3 px-5 shadow">
+            {response[0]?.task}
           </p>
 
           <div className="bg-white shadow my-5 px-5 py-4 h-auto w-auto">
@@ -75,18 +84,26 @@ const Inquiry = () => {
 
           <button
             onClick={handleUpdate}
-            className="bg-blue-500 text-white  px-5 py-3 hover:bg-white delay-75 hover:border-2 translate duration-150 border-2 border-white  hover:border-blue-500 hover:text-black rounded-md poop "
+            className="bg-blue-500 text-white w-full  px-5 py-3 hover:bg-white delay-75 hover:border-2 translate duration-150 border-2 border-white  hover:border-blue-500 hover:text-black rounded-md poop "
           >
             Update Points
           </button>
         </div>
       ) : (
         <div
-          className="flex mt-32 text-green-500  px-8 gap-2 py-3 
-         text-3xl rounded-lg items-center justify-center"
+          className="flex flex-col mt-32 text-green-500  px-8 gap-10 py-3 
+         text-3xl rounded-lg items-center justify-around"
         >
-          <MdOutlineDone size={29} />
-          Updated!
+          <button
+            className="bg-black px-5 py-2 text-xl w-20 rounded-2xl text-white"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
+          <div className="flex justify-center items-center gap-2">
+            <MdOutlineDone size={29} />
+            Updated!
+          </div>
         </div>
       )}
     </div>
