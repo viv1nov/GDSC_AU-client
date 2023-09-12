@@ -19,14 +19,14 @@ const Inquiry = () => {
     }
     (async () => {
       const res = await axios.get(
-        `http://localhost:3001/question/singleResponse/${resID}`
+        `https://gdsc-au-server.onrender.com/question/singleResponse/${resID}`
       );
       setResponse(res.data);
       console.log(res.data);
     })();
     (async () => {
       const user = await axios.get(
-        `http://localhost:3001/users/singleUser/${resID}`
+        `https://gdsc-au-server.onrender.com/users/singleUser/${resID}`
       );
       setPoint(user.data.points);
     })();
@@ -34,7 +34,7 @@ const Inquiry = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:3001/users/updatePoints/${resID}`, {
+      await axios.put(`https://gdsc-au-server.onrender.com/users/updatePoints/${resID}`, {
         point,
       });
       setUpdated(true);
