@@ -9,7 +9,7 @@ const Question = () => {
   React.useEffect(() => {
     (async () => {
       const res = await axios.get(
-        `http://localhost:3001/users/currentUser/${localStorage.getItem(
+        `https://gdsc-au-server.onrender.com/users/currentUser/${localStorage.getItem(
           "userID"
         )}`
       );
@@ -52,7 +52,7 @@ const Question = () => {
   const handleSubmit = async () => {
     window.scrollTo(0, 0);
     try {
-      await axios.post(`http://localhost:3001/question/submit`, {
+      await axios.post(`https://gdsc-au-server.onrender.com/question/submit`, {
         ...answer,
       });
       setSubmitted(true);
