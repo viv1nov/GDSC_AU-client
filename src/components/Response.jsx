@@ -13,14 +13,14 @@ const Response = () => {
   React.useEffect(() => {
     (async () => {
       const user = await axios.get(
-        `https://gdsc-au-server.onrender.com/users/currentUser/${localStorage.getItem(
+        `http://localhost:3001/users/currentUser/${localStorage.getItem(
           "userID"
         )}`
       );
       setCurrentUser(user.data);
     })();
     (async () => {
-      const res = await axios.get(`https://gdsc-au-server.onrender.com/question/responses`);
+      const res = await axios.get(`http://localhost:3001/question/responses`);
       setAllResponse(res.data);
     })();
   }, []);
@@ -40,7 +40,7 @@ const Response = () => {
                   <MdDoneAll size={26} />
                   <p>{res.owner}</p>
                 </div>
-                <p className="text-xs text-gray-800">({res.date})</p>
+                <p className="text-xs text-gray-800">({res.time})</p>
               </div>
             );
           })}
