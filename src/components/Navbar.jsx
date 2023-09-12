@@ -40,7 +40,7 @@ const Navbar = () => {
           })}
           className="hover:text-green-500 rounded-xl translate duration-200 px-5 lg:py-1 sm:py-5   ease-linear"
         >
-          Events
+          Trivia
         </NavLink>
         <NavLink
           className="hover:text-green-500 rounded-xl  translate duration-200 px-5 lg:py-1 sm:py-5   ease-linear"
