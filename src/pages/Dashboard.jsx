@@ -60,7 +60,9 @@ const Dashboard = () => {
 
       {isLoading && (
         <div className="lg:px-14 sm:px-4  h-auto py-1 rounded-lg lg:w-7/12 sm:w-full flex overflow-y-auto  flex-col">
-          {users.map((user, index) => {
+          {users
+             .filter(user => user.role !== 'Admin')
+            .map((user, index) => {
             return (
               <div className="flex lg:gap-20 sm:gap-12 rounded-xl  justify-between  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-4  items-center">
                 <div className="flex lg:gap-10 sm:gap-5 items-center justify-center text-2xl">
