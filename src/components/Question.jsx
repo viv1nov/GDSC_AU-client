@@ -36,7 +36,6 @@ const Question = () => {
     que2: "",
     que3: "",
     que4: "",
-    que5: "",
     task: "",
     time: formattedTime,
     submitedBy: localStorage.getItem("userID"),
@@ -47,7 +46,6 @@ const Question = () => {
     setAnswer({ ...answer, [name]: value });
   };
 
-  console.log(answer);
 
   const handleSubmit = async () => {
     window.scrollTo(0, 0);
@@ -241,70 +239,7 @@ const Question = () => {
             </main>
           </div>
 
-          <div className="bg-white shadow flex flex-col  px-7 py-3 my-4 rounded-xl w-full">
-            <p className="flex text-start text-lg font-bold">
-             In Git, what is the purpose of a "fork" on GitHub?
-
-            </p>
-
-            <main className="my-2 mt-4">
-              <input
-                type="radio"
-                name="que4"
-                id="r1"
-                value="To duplicate a repository."
-                onChange={(e) => handleChange(e)}
-                className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r1">To duplicate a repository.
-</label>
-            </main>
-
-            <main className="my-2">
-              <input
-                type="radio"
-                onChange={(e) => handleChange(e)}
-                name="que4"
-                id="r2"
-                value="o request code reviews.
-"
-                className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r2">
-                o request code reviews.
-
-                repository
-              </label>
-            </main>
-
-            <main className="my-2">
-              <input
-                value="o delete a repository.
-"
-                onChange={(e) => handleChange(e)}
-                type="radio"
-                name="que4"
-                id="r3"
-                className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r3">o delete a repository.
-</label>
-            </main>
-
-            <main className="my-2">
-              <input
-                type="radio"
-                value="To create a new branch.
-"
-                onChange={(e) => handleChange(e)}
-                id="r4"
-                name="que4"
-                className="px-3 py-1 text-sm my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r4">To create a new branch.
-</label>
-            </main>
-          </div>
+         
 
           <div className="bg-white shadow flex flex-col  px-7 py-3 my-4 rounded-xl w-full">
             <p className="flex text-start text-lg font-bold">
@@ -328,7 +263,7 @@ const Question = () => {
               <input
                 type="radio"
                 onChange={(e) => handleChange(e)}
-                name="que5"
+                name="que4"
                 id="r2"
                 value="To isolate and work on a new feature or bug fix independently"
                 className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
@@ -343,7 +278,7 @@ const Question = () => {
                 value="To merge all code changes into a single branch"
                 onChange={(e) => handleChange(e)}
                 type="radio"
-                name="que5"
+                name="que4"
                 id="r3"
                 className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
               />
@@ -358,7 +293,7 @@ const Question = () => {
                 value="To delete old code version"
                 onChange={(e) => handleChange(e)}
                 id="r4"
-                name="que5"
+                name="que4"
                 className="px-3 py-1 text-sm my-1 rounded-md  bg-gray-200 "
               />
               <label htmlFor="r4">To delete old code version</label>
@@ -376,9 +311,9 @@ const Question = () => {
             </p>
             <p>4. Create new branch and push code to it</p>
             <p>5. Merge two branches using Pull request</p>
-            <p>6. Fork and clone demo repo from club's Github account</p>
+         
             <p>
-              7. Make changes to README file(add your name to it) and create
+              6. Make changes to README file(add your name to it) and create
               Pull request
             </p>
             <input
@@ -386,7 +321,7 @@ const Question = () => {
               onChange={(e) => handleChange(e)}
               name="task"
               value={answer.task}
-              className="px-3 mt-4 font-bold poop py-3 w-full placeholder:text-black placeholder:text-opacity-40 bg-white rounded-lg shadow border-2 border-red-500"
+              className="px-3 mt-4 font-bold  py-3 w-full placeholder:text-black placeholder:text-opacity-40 bg-white rounded-lg shadow border-2 border-red-500"
               placeholder="*Copy paste your Github profile link here*"
             />
           </div>
