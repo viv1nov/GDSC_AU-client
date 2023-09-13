@@ -243,8 +243,8 @@ const Question = () => {
 
           <div className="bg-white shadow flex flex-col  px-7 py-3 my-4 rounded-xl w-full">
             <p className="flex text-start text-lg font-bold">
-              When forking a repository on Github, what does it mean to 'sync'
-              your fork?
+             In Git, what is the purpose of a "fork" on GitHub?
+
             </p>
 
             <main className="my-2 mt-4">
@@ -252,11 +252,12 @@ const Question = () => {
                 type="radio"
                 name="que4"
                 id="r1"
-                value="To create a backup of your fork"
+                value="To duplicate a repository."
                 onChange={(e) => handleChange(e)}
                 className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
               />
-              <label htmlFor="r1">To create a backup of your fork</label>
+              <label htmlFor="r1">To duplicate a repository.
+</label>
             </main>
 
             <main className="my-2">
@@ -265,37 +266,43 @@ const Question = () => {
                 onChange={(e) => handleChange(e)}
                 name="que4"
                 id="r2"
-                value="To keep your fork up-to-date with changes made to the original repository"
+                value="o request code reviews.
+"
                 className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
               />
               <label htmlFor="r2">
-                To keep your fork up-to-date with changes made to the original
+                o request code reviews.
+
                 repository
               </label>
             </main>
 
             <main className="my-2">
               <input
-                value="To merge your fork with other forks"
+                value="o delete a repository.
+"
                 onChange={(e) => handleChange(e)}
                 type="radio"
                 name="que4"
                 id="r3"
                 className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
               />
-              <label htmlFor="r3">To merge your fork with other forks</label>
+              <label htmlFor="r3">o delete a repository.
+</label>
             </main>
 
             <main className="my-2">
               <input
                 type="radio"
-                value="To delete your fork"
+                value="To create a new branch.
+"
                 onChange={(e) => handleChange(e)}
                 id="r4"
                 name="que4"
                 className="px-3 py-1 text-sm my-1 rounded-md  bg-gray-200 "
               />
-              <label htmlFor="r4">To delete your fork</label>
+              <label htmlFor="r4">To create a new branch.
+</label>
             </main>
           </div>
 
