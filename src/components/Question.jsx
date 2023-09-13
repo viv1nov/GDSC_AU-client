@@ -35,7 +35,6 @@ const Question = () => {
     que1: "",
     que2: "",
     que3: "",
-    que4: "",
     task: "",
     time: formattedTime,
     submitedBy: localStorage.getItem("userID"),
@@ -241,64 +240,7 @@ const Question = () => {
 
          
 
-          <div className="bg-white shadow flex flex-col  px-7 py-3 my-4 rounded-xl w-full">
-            <p className="flex text-start text-lg font-bold">
-              Which of the following best descibes the purpose of a 'Git
-              Branch'?
-            </p>
-
-            <main className="my-2 mt-4">
-              <input
-                type="radio"
-                name="que4"
-                id="r1"
-                value="To store a copies for backup purposes"
-                onChange={(e) => handleChange(e)}
-                className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r1">To store a copies for backup purposes</label>
-            </main>
-
-            <main className="my-2">
-              <input
-                type="radio"
-                onChange={(e) => handleChange(e)}
-                name="que4"
-                id="r2"
-                value="To isolate and work on a new feature or bug fix independently"
-                className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r2">
-                To isolate and work on a new feature or bug fix independently
-              </label>
-            </main>
-
-            <main className="my-2">
-              <input
-                value="To merge all code changes into a single branch"
-                onChange={(e) => handleChange(e)}
-                type="radio"
-                name="que4"
-                id="r3"
-                className="px-3 py-1 text-sm  my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r3">
-                To merge all code changes into a single branch
-              </label>
-            </main>
-
-            <main className="my-2">
-              <input
-                type="radio"
-                value="To delete old code version"
-                onChange={(e) => handleChange(e)}
-                id="r4"
-                name="que4"
-                className="px-3 py-1 text-sm my-1 rounded-md  bg-gray-200 "
-              />
-              <label htmlFor="r4">To delete old code version</label>
-            </main>
-          </div>
+        
 
           <div className="my-4 px-4 py-4 gap-2 bg-white shadow rounded-lg">
             <p className="text-3xl my-3 font-bold">TASKS: </p>
