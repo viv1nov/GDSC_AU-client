@@ -60,15 +60,10 @@ const Inquiry = () => {
           <p className="my-5 text-lg bg-white py-3 px-5 shadow">
             {response[0]?.que3}
           </p>
-          <p className="my-5 text-lg bg-white py-3 px-5 shadow">
-            {response[0]?.que4}
-          </p>
-          <p className="my-5 text-lg bg-white py-3 px-5 shadow">
-            {response[0]?.que5}
-          </p>
-          <p className="my-5 text-lg bg-white py-3 px-5 shadow">
+    
+          <a className="my-5 text-lg bg-white py-3 px-5 shadow">
             {response[0]?.task}
-          </p>
+          </a>
 
           <div className="bg-white shadow my-5 px-5 py-4 h-auto w-auto">
             <p className="my-2">Set points </p>
