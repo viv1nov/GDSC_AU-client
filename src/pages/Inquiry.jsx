@@ -60,10 +60,13 @@ const Inquiry = () => {
           <p className="my-5 text-lg bg-white py-3 px-5 shadow">
             {response[0]?.que3}
           </p>
+           <p className="my-5 text-lg bg-white py-3 px-5 shadow">
+            {response[0]?.que4}
+          </p>
     
-          <a className="my-5 text-lg bg-white py-3 px-5 shadow">
+          <p className="my-5 text-lg text-red-500 bg-white py-3 px-5 shadow">
             {response[0]?.task}
-          </a>
+          </p>
 
           <div className="bg-white shadow my-5 px-5 py-4 my-4 h-auto w-auto">
             <p className="my-2">Set points </p>
@@ -79,7 +82,7 @@ const Inquiry = () => {
 
           <button
             onClick={handleUpdate}
-            className="bg-blue-500 my-6 text-white w-full  px-5 py-3 hover:bg-white delay-75 hover:border-2 translate duration-150 border-2 border-white  hover:border-blue-500 hover:text-black rounded-md poop "
+            className="bg-blue-500 my-10 text-white w-full  px-5 py-3 hover:bg-white delay-75 hover:border-2 translate duration-150 border-2 border-white  hover:border-blue-500 hover:text-black rounded-md poop "
           >
             Update Points
           </button>
