@@ -65,7 +65,7 @@ const Inquiry = () => {
             {response[0]?.task}
           </a>
 
-          <div className="bg-white shadow my-5 px-5 py-4 h-auto w-auto">
+          <div className="bg-white shadow my-5 px-5 py-4 my-4 h-auto w-auto">
             <p className="my-2">Set points </p>
             <input
               type="number"
@@ -79,7 +79,7 @@ const Inquiry = () => {
 
           <button
             onClick={handleUpdate}
-            className="bg-blue-500 text-white w-full  px-5 py-3 hover:bg-white delay-75 hover:border-2 translate duration-150 border-2 border-white  hover:border-blue-500 hover:text-black rounded-md poop "
+            className="bg-blue-500 my-6 text-white w-full  px-5 py-3 hover:bg-white delay-75 hover:border-2 translate duration-150 border-2 border-white  hover:border-blue-500 hover:text-black rounded-md poop "
           >
             Update Points
           </button>
