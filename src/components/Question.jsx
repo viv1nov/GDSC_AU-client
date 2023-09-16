@@ -1,8 +1,7 @@
 import React from "react";
 import "../index.css";
 import { MdOutlineDone } from "react-icons/md";
-import axiosInstance from "../axiosInstance";
-
+import axios from 'axios'
 const Question = () => {
 	const [currentUser, setCurrentUser] = React.useState({});
 	const [submitted, setSubmitted] = React.useState(false);
