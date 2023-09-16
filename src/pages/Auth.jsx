@@ -6,12 +6,33 @@ import { useNavigate } from "react-router-dom";
 const Auth = () => {
   const navigate = useNavigate();
   const [auth, setAuth] = React.useState("REGISTER");
+    const [server, setServer] = React.useState(true);
+
   const [user, setUser] = React.useState({
     name: "",
     email: "",
     password: "",
   });
   const [error, setError] = React.useState("");
+
+  
+  React.useEffect(() => {
+    (async () => {
+      try {
+        const user = await axios.get(
+          "https://gdsc-au-server.onrender.com/users/getAllUsers"
+        );
+        if (user.data) {
+          setServer(true);
+        }
+        if (!user.data) {
+          setServer(false);
+        }
+      } catch (error) {
+        return null;
+      }
+    })();
+  }, []);
  
   const toggleAuth = () => {
     if (auth === "REGISTER") {
@@ -74,7 +95,7 @@ const Auth = () => {
 
   return (
     <div className="h-screen w-screen bg-gray-100 flex    justify-center items-center gap-20 ">
-      <div className="h-screen lg:flex sm:hidden justify-center items-center lg:w-5/12 sm:w-0 ">
+      {server && <div className="h-screen lg:flex sm:hidden justify-center items-center lg:w-5/12 sm:w-0 ">
         {auth === "REGISTER" && (
           <p className="text-7xl text-gray-800    press">
             <span className="text-red-500 ">C</span>reate{" "}
@@ -91,9 +112,9 @@ const Auth = () => {
             <span className="text-yellow-400">A</span>ccout
           </p>
         )}
-      </div>
+      </div> }
 
-      <form
+      {server ? ( <form
         className="lg:w-7/12 sm:w-11/12 flex justify-center items-center flex-col h-screen max-w-sm"
         onSubmit={handleSubmit}
         enctype="multipart/form-data"
@@ -182,7 +203,16 @@ const Auth = () => {
             </p>
           </div>
         </div>
-      </form>
+      </form> ): (
+        <div className="text-2xl sm:px-5 flex flex-col gap-1 justify-center items-center h-full w-full ">
+          <p className="text-4xl poop">SERVER IS OFFLINE!</p>
+          <p className="text-center">
+            Please contact at{" "}
+            <span className="text-red-600">gdsc.atmiya@gmail.com</span> for any
+            queries.
+          </p>
+        </div>
+      )}
     </div>
   );
 };
