@@ -6,8 +6,8 @@ import "../index.css";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Inquiry = () => {
-	const { resID } = useParams();
-	// const resID = window.location.href.slice(36);
+	// const { resID } = useParams();
+	 const resID = window.location.href.slice(36);
 
 	const navigate = useNavigate();
 	const [response, setResponse] = React.useState({});
