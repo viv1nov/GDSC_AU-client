@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import axiosInstance from "../axiosInstance";
+import axios from 'axios';
 import { MdOutlineDone } from "react-icons/md";
 import "../index.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -20,13 +20,13 @@ const Inquiry = () => {
 			return navigate("/");
 		}
 		(async () => {
-			const res = await axiosInstance.get(
+			const res = await axios.get(
 				window.BASE_API_URL + `/question/singleResponse/${resID}`, { withCredentials: true }
 			);
 			setResponse(res.data);
 		})();
 		(async () => {
-			const user = await axiosInstance.get(
+			const user = await axios.get(
 				window.BASE_API_URL + `/users/singleUser/${resID}`, { withCredentials: true }
 			);
 			setPoint(user.data.points);
@@ -35,7 +35,7 @@ const Inquiry = () => {
 
 	const handleUpdate = async () => {
 		try {
-			await axiosInstance.put(window.BASE_API_URL + `/users/updatePoints/${resID}`, {
+			await axios.put(window.BASE_API_URL + `/users/updatePoints/${resID}`, {
 				point
 			}, { withCredentials: true });
 			setUpdated(true);
