@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 const Auth = () => {
   const navigate = useNavigate();
   const [auth, setAuth] = React.useState("REGISTER");
-    const [server, setServer] = React.useState(true);
+  const [server, setServer] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
 
   const [user, setUser] = React.useState({
     name: "",
@@ -43,6 +44,8 @@ const Auth = () => {
         password: "",
       });
       setError("");
+      setLoading(false);
+
     }
     if (auth === "LOGIN") {
       setAuth("REGISTER");
@@ -52,6 +55,8 @@ const Auth = () => {
         password: "",
       });
       setError("");
+      setLoading(false);
+
     }
   };
 
@@ -65,24 +70,36 @@ const Auth = () => {
     e.preventDefault();
 
     if (auth === "REGISTER") {
+      setLoading(true);
+
       try {
         const res = await axios.post("https://gdsc-au-server.onrender.com/auth/register", {
           ...user,
         });
         setError(res.data.msg);
+         if (error) {
+          setLoading(false);
+        }
         setAuth("LOGIN")
-     
+        setLoading(false);
+
       } catch (error) {
         console.log(error);
       }
     }
     if (auth === "LOGIN") {
+        setLoading(true);
+
       try {
         const resxponse = await axios.post("https://gdsc-au-server.onrender.com/auth/login", {
           ...user,
         });
         setError(resxponse.data.msg);
         localStorage.setItem("userID", resxponse.data.userID);
+
+         if (!error) {
+          setLoading(false);
+        }
 
         if (resxponse.data.userID) {
           return navigate("/home");
@@ -185,7 +202,11 @@ const Auth = () => {
               className="shadow bg-blue-500 w-full  hover:bg-blue-400 duration-200  ease-in translate focus:shadow-outline focus:outline-none text-white font-bold py-3 px-4 rounded"
               type="submit"
             >
-              {auth === "REGISTER" ? "REGISTER" : "LOGIN"}
+             {!loading
+                  ? auth === "REGISTER"
+                    ? "REGISTER"
+                    : "LOGIN"
+                  : "Loading..."}
             </button>
           </div>
 
