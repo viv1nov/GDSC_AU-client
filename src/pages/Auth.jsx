@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Auth = () => {
   const navigate = useNavigate();
   const [auth, setAuth] = React.useState("REGISTER");
-  const [server, setServer] = React.useState(true);
+  const [server, setServer] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
   const [user, setUser] = React.useState({
