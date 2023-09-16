@@ -69,7 +69,7 @@ const Inquiry = () => {
 						{response[0]?.task}
 					</a>
 
-					<div className="bg-white shadow my-5 px-5 py-4 my-4 h-auto w-auto">
+					<div className="bg-white shadow my-5 px-5 py-4  h-auto w-auto">
 						<p className="my-2">Set points </p>
 						<input
 							type="number"
