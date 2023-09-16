@@ -17,7 +17,7 @@ const EditUser = ({ close, user, index }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://gdsc-au-server.onrender.com/users/updateUser/${user._id}`, {
+      await axios.patch(`https://gdsc-au-server.onrender.com/users/dashboardUpdate/${user._id}`, {
         ...update,
       });
       
