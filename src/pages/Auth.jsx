@@ -225,12 +225,12 @@ const Auth = () => {
           </div>
         </div>
       </form> ): (
-        <div className="text-2xl sm:px-5 flex flex-col gap-1 justify-center items-center h-full w-full ">
-          <p className="text-4xl poop">SERVER IS OFFLINE!</p>
-          <p className="text-center">
+        <div className="bg-black text-white text-2xl sm:px-5 flex flex-col gap-2 justify-center items-center h-full w-full ">
+          <p className="text-5xl poop">SERVER IS OFFLINE!</p>
+          <p className="text-center text-gray-400">
             Please contact at{" "}
-            <span className="text-red-600">gdsc.atmiya@gmail.com</span> for any
-            queries.
+            <span className="text-blue-300">gdsc.atmiya@gmail.com</span>{" "}
+            regarding any queries.
           </p>
         </div>
       )}
