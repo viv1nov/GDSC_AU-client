@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex lg:gap-5 sm:gap-6 bg-white shadow fixed lg:text-lg sm:text-base  sm:h-14 z-10 justify-between  w-screen overflow-y-hidden items-center poppins   text-black">
+    <div className="flex lg:gap-5 sm:gap-6 bg-white shadow fixed lg:text-lg sm:text-base  sm:h-14 z-10 justify-between  w-screen overflow-y-hidden items-center poop   text-black">
       <div className="flex ">
         <NavLink
           to="/home"
