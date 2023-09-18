@@ -22,7 +22,9 @@ const Dashboard = () => {
       return navigate("/");
     }
     (async () => {
-      const res = await axios.get("https://gdsc-au-server.onrender.com/users/getAllUsers");
+      const res = await axios.get(
+        "https://gdsc-au-server.onrender.com/users/getAllUsers"
+      );
       setUsers(res.data);
     })();
 
@@ -43,7 +45,7 @@ const Dashboard = () => {
 
       <div className="mt-28  justify-center items-center  lg:w-4/6 sm:w-screen  flex  flex-col   ">
         <p
-          className={`press lg:text-6xl sm:text-4xl ${
+          className={`press sm:px-4 lg:text-6xl sm:text-5xl ${
             currentUser.role !== "Admin" ? "mb-14" : ""
           } text-center text-gray-800 `}
         >
@@ -61,10 +63,10 @@ const Dashboard = () => {
       {isLoading && (
         <div className="lg:px-14 sm:px-4  h-auto py-1 rounded-lg lg:w-7/12 sm:w-full flex overflow-y-auto  flex-col">
           {users
-             .filter(user => user.role !== 'Admin')
+            .filter(user => user.role !== 'Admin')
             .map((user, index) => {
             return (
-              <div className="flex lg:gap-20 sm:gap-12 rounded-xl  justify-between  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-4  items-center">
+              <div className="flex lg:gap-20 sm:gap-7 rounded-xl  lg:justify-between sm:justify-around  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-4  items-center">
                 <div className="flex lg:gap-10 sm:gap-5 items-center justify-center text-2xl">
                   <p
                     className={`${
@@ -83,12 +85,12 @@ const Dashboard = () => {
                 <p
                   className={`${
                     index === 0
-                      ? "py-2 lg:text-2xl sm:text-xl"
+                      ? "py-2 lg:text-2xl sm:text-lg"
                       : index === 1
-                      ? " py-2 lg:text-2xl sm:text-xl"
+                      ? " py-2 lg:text-2xl sm:text-lg"
                       : index === 2
-                      ? "  py-2 lg:text-2xl sm:text-xl"
-                      : "text-black lg:text-2xl sm:text-xl"
+                      ? "  py-2 lg:text-2xl sm:text-lg"
+                      : "text-black lg:text-2xl sm:text-lg"
                   } lg:w-2/6 sm:w-5/6`}
                 >
                   {user.name}
