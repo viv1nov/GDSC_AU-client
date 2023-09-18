@@ -66,7 +66,7 @@ const Dashboard = () => {
             .filter(user => user.role !== 'Admin')
             .map((user, index) => {
             return (
-              <div className="flex lg:gap-20 sm:gap-7 rounded-xl box-shadow lg:justify-between sm:justify-around  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-4  items-center">
+              <div className="flex lg:gap-20 sm:gap-7 rounded-xl box-shadow lg:justify-between sm:justify-around  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-4 px-16  py-4  items-center">
                 <div className="flex lg:gap-10 sm:gap-5 items-center justify-center text-2xl">
                   <p
                     className={`${
