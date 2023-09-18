@@ -75,11 +75,11 @@ const Profile = () => {
         </p>
       </div>
 
-      <div className="lg:w-7/12 sm:w-11/12 h-full  flex-col flex justify-center items-center">
+      <div className="lg:w-7/12 sm:w-screen h-full  flex-col flex justify-center items-center">
         <p className="press mt-10 mb-5  text-2xl flex flex-col lg:hidden sm:block  justify-center items-center text-center ">
           <span className=" text-5xl text-blue-500 ">{user.points}</span> PTs
         </p>
-        <main className="bg-white rounded-xl  lg:w-6/12 sm:w-10/12 shadow flex flex-col justify-center items-center px-2 py-10">
+        <main className="bg-white rounded-xl  lg:w-6/12 sm:w-full shadow flex flex-col justify-center items-center px-2 py-10">
           <div className="flex flex-col w-8/12 justify-start items-start my-2 ">
             <label className="block text-gray-500 font-bold text-lg mb-1 pr-4">
               Name
