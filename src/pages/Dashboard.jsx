@@ -66,17 +66,17 @@ const Dashboard = () => {
             .filter(user => user.role !== 'Admin')
             .map((user, index) => {
             return (
-              <div className="flex lg:gap-20 sm:gap-7 rounded-xl  lg:justify-between sm:justify-around  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-4  items-center">
+              <div className="flex lg:gap-20 sm:gap-7 rounded-xl box-shadow lg:justify-between sm:justify-around  bg-white text-xl font-medium shadow hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-3 px-16  py-4  items-center">
                 <div className="flex lg:gap-10 sm:gap-5 items-center justify-center text-2xl">
                   <p
                     className={`${
                       index === 0
-                        ? "text-blue-500   lg:text-4xl sm:text-2xl "
+                        ? "text-blue-500   lg:text-6xl sm:text-2xl "
                         : index === 1
-                        ? "text-green-500 lg:text-4xl sm:text-2xl"
+                        ? "text-green-500 lg:text-6xl sm:text-2xl"
                         : index === 2
-                        ? "text-yellow-500 lg:text-4xl sm:text-2xl"
-                        : "text-black py-1 lg:text-3xl sm:text-xl"
+                        ? "text-yellow-500 lg:text-6xl sm:text-2xl"
+                        : "text-black py-1 lg:text-4xl sm:text-xl"
                     }`}
                   >
                     #{index + 1}
@@ -85,13 +85,13 @@ const Dashboard = () => {
                 <p
                   className={`${
                     index === 0
-                      ? "py-2 lg:text-2xl sm:text-lg"
+                      ? "py-2 lg:text-3xl sm:text-lg"
                       : index === 1
-                      ? " py-2 lg:text-2xl sm:text-lg"
+                      ? " py-2 lg:text-3xl sm:text-lg"
                       : index === 2
-                      ? "  py-2 lg:text-2xl sm:text-lg"
+                      ? "  py-2 lg:text-3xl sm:text-lg"
                       : "text-black lg:text-2xl sm:text-lg"
-                  } lg:w-2/6 sm:w-5/6`}
+                  } lg:w-2/6 sm:w-5/6 font-bold`}
                 >
                   {user.name}
                 </p>
