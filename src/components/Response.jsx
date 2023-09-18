@@ -34,10 +34,10 @@ const Response = () => {
                 onClick={() => {
                   navigate(`/trivia/${res.submitedBy}`);
                 }}
-                className="flex  lg:w-3/12 sm:w-5/12 justify-evenly mx-3 items-center  cursor-pointer hover:bg-gray-100 trasnlate duration-150 delay-75 ease-in-out gap-6 px-7 text-xl py-5 bg-white shadow my-4 rounded-lg"
+                className="flex  lg:w-3/12 sm:w-5/12 justify-evenly mx-3 items-center  cursor-pointer hover:bg-gray-100 trasnlate duration-150 delay-75 ease-in-out gap-6 px-7 lg:text-xl sm:text-sm py-5 bg-white shadow my-4 rounded-lg"
               >
                 <div className="flex gap-3 justify-center items-center">
-                  <MdDoneAll size={26} />
+                  <MdDoneAll size={26} className="lg:flex sm:hidden"/>
                   <p>{res.owner}</p>
                 </div>
                 <p className="text-xs text-gray-800">({res.time})</p>
