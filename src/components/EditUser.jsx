@@ -17,6 +17,7 @@ const EditUser = ({ close, user, index }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+<<<<<<< HEAD
       await axios.patch(
         `https://gdsc-au-server.onrender.com/users/updateUser/${user._id}`,
         {
@@ -24,6 +25,12 @@ const EditUser = ({ close, user, index }) => {
         }
       );
       window.location.reload();
+=======
+      await axios.patch(`https://gdsc-au-server.onrender.com/users/dashboardUpdate/${user._id}`, {
+        ...update,
+      });
+      
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
     } catch (error) {
       console.log(error);
     }
@@ -31,10 +38,15 @@ const EditUser = ({ close, user, index }) => {
 
   const handleDelete = async () => {
     try {
+<<<<<<< HEAD
       await axios.delete(
         `https://gdsc-au-server.onrender.com/users/deleteUser/${user._id}`
       );
       window.location.reload();
+=======
+      await axios.delete(`https://gdsc-au-server.onrender.com/users/deleteUser/${user._id}`);
+  
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
     } catch (error) {
       console.log(error);
     }

@@ -20,9 +20,13 @@ const Response = () => {
       setCurrentUser(user.data);
     })();
     (async () => {
+<<<<<<< HEAD
       const res = await axios.get(
         `https://gdsc-au-server.onrender.com/question/responses`
       );
+=======
+      const res = await axios.get(`https://gdsc-au-server.onrender.com/question/responses`);
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
       setAllResponse(res.data);
     })();
   }, []);
@@ -36,10 +40,17 @@ const Response = () => {
                 onClick={() => {
                   navigate(`/trivia/${res.submitedBy}`);
                 }}
+<<<<<<< HEAD
                 className="flex  lg:w-3/12 sm:w-5/12 lg:justify-evenly sm:justify-center mx-3 items-center  cursor-pointer hover:bg-gray-100 trasnlate duration-150 delay-75 ease-in-out gap-6 px-7 lg:text-xl sm:text-sm  py-5 bg-white shadow my-4 rounded-lg"
               >
                 <div className="flex gap-3 justify-center items-center">
                   <MdDoneAll size={26} className="lg:flex sm:hidden" />
+=======
+                className="flex  lg:w-3/12 sm:w-5/12 justify-evenly mx-3 items-center  cursor-pointer hover:bg-gray-100 trasnlate duration-150 delay-75 ease-in-out gap-6 px-7 lg:text-xl sm:text-sm py-5 bg-white shadow my-4 rounded-lg"
+              >
+                <div className="flex gap-3 justify-center items-center">
+                  <MdDoneAll size={26} className="lg:flex sm:hidden"/>
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
                   <p>{res.owner}</p>
                 </div>
                 <p className="text-xs text-gray-800">({res.time})</p>

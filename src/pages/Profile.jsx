@@ -22,7 +22,11 @@ const Profile = () => {
         ...updateUser,
         email: res.data.email,
         name: res.data.name,
+<<<<<<< HEAD
         phone: res.data.phone,
+=======
+         phone: res.data.phone,
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
         branch: res.data.branch,
         sem: res.data.sem,
       });
@@ -37,7 +41,7 @@ const Profile = () => {
     sem: "",
   });
 
-  console.log(updateUser);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -48,12 +52,18 @@ const Profile = () => {
     e.preventDefault();
 
     try {
+<<<<<<< HEAD
       await axios.patch(
         `https://gdsc-au-server.onrender.com/users/updateUser/${user._id}`,
         {
           ...updateUser,
         }
       );
+=======
+      await axios.patch(`https://gdsc-au-server.onrender.com/users/updateUser/${user._id}`, {
+        ...updateUser,
+      });
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
     } catch (error) {
       console.log(error);
     }
@@ -61,9 +71,13 @@ const Profile = () => {
 
   const handleDelete = async () => {
     try {
+<<<<<<< HEAD
       await axios.delete(
         `https://gdsc-au-server.onrender.com/users/deleteUser/${user._id}`
       );
+=======
+      await axios.delete(`https://gdsc-au-server.onrender.com/users/deleteUser/${user._id}`);
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -80,11 +94,11 @@ const Profile = () => {
         </p>
       </div>
 
-      <div className="lg:w-7/12 sm:w-11/12 h-full  flex-col flex justify-center items-center">
+      <div className="lg:w-7/12 sm:w-screen h-full  flex-col flex justify-center items-center">
         <p className="press mt-10 mb-5  text-2xl flex flex-col lg:hidden sm:block  justify-center items-center text-center ">
           <span className=" text-5xl text-blue-500 ">{user.points}</span> PTs
         </p>
-        <main className="bg-white rounded-xl  lg:w-6/12 sm:w-10/12 shadow flex flex-col justify-center items-center px-2 py-10">
+        <main className="bg-white rounded-xl  lg:w-6/12 sm:w-full shadow flex flex-col justify-center items-center px-2 py-10">
           <div className="flex flex-col w-8/12 justify-start items-start my-2 ">
             <label className="block text-gray-500 font-bold text-lg mb-1 pr-4">
               Name
@@ -141,6 +155,9 @@ const Profile = () => {
                   className="block appearance-none w-full bg-blue-100 border-2 border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-green-500"
                   id="grid-state"
                 >
+                     <option name="Default" value="Default">
+                     Branch
+                  </option>
                   <option name="BCA" value="BCA">
                     BCA
                   </option>
@@ -191,6 +208,7 @@ const Profile = () => {
                   className="block appearance-none w-full bg-blue-100 border-2 border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-green-500"
                   id="grid-state"
                 >
+                   <option value={"Default"}>Semester</option>
                   <option value={"1st"}>1st</option>
                   <option value={"3rd"}>3rd</option>
                   <option value={"5th"}>5th</option>

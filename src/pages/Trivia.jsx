@@ -16,12 +16,16 @@ const Trivia = () => {
     if (!cookie) {
       navigate("/");
     }
+<<<<<<< HEAD
     (async () => {
       const res = await axios.get(
         `https://gdsc-au-server.onrender.com/users/currentUser/${cookie}`
       );
       setUser(res.data);
     })();
+=======
+   
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
   }, []);
 
   return (
@@ -38,7 +42,11 @@ const Trivia = () => {
         >
           Questions
         </button>
+<<<<<<< HEAD
         {user?.role === "Admin" && (
+=======
+        
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
           <button
             onClick={() => {
               setQuestion(false);
@@ -48,7 +56,11 @@ const Trivia = () => {
           >
             Responses
           </button>
+<<<<<<< HEAD
         )}
+=======
+   
+>>>>>>> 5ba5771d001809a52639b0ba7e902a3affba2e7d
       </div>
 
       {question && (

@@ -62,64 +62,66 @@ const Dashboard = () => {
 
       {isLoading && (
         <div className="lg:px-14 sm:px-4  h-auto py-1 rounded-lg lg:w-7/12 sm:w-full flex overflow-y-auto  flex-col">
-          {users.map((user, index) => {
-            return (
-              <div className="flex lg:gap-20 sm:gap-7 rounded-xl box-shadow  lg:justify-between justify-around   bg-white text-xl font-medium  hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-4 px-16  py-4  items-center">
-                <div className="flex lg:gap-10 sm:gap-5 items-center justify-center text-2xl">
+          {users
+            .filter((user) => user.role !== "Admin")
+            .map((user, index) => {
+              return (
+                <div className="flex lg:gap-20 sm:gap-7 rounded-xl box-shadow  lg:justify-between justify-around   bg-white text-xl font-medium  hover:bg-blue-100 translate duration-100 ease-in-out cursor-pointer my-4 px-16  py-4  items-center">
+                  <div className="flex lg:gap-10 sm:gap-5 items-center justify-center text-2xl">
+                    <p
+                      className={`${
+                        index === 0
+                          ? "text-blue-500   lg:text-6xl sm:text-2xl "
+                          : index === 1
+                          ? "text-green-500 lg:text-6xl sm:text-2xl"
+                          : index === 2
+                          ? "text-yellow-500 lg:text-6xl sm:text-2xl"
+                          : "text-black py-1 lg:text-4xl sm:text-xl"
+                      }`}
+                    >
+                      #{index + 1}
+                    </p>
+                  </div>
                   <p
                     className={`${
                       index === 0
-                        ? "text-blue-500   lg:text-6xl sm:text-2xl "
+                        ? "py-2 lg:text-3xl sm:text-lg"
                         : index === 1
-                        ? "text-green-500 lg:text-6xl sm:text-2xl"
+                        ? " py-2 lg:text-3xl sm:text-lg"
                         : index === 2
-                        ? "text-yellow-500 lg:text-6xl sm:text-2xl"
-                        : "text-black py-1 lg:text-4xl sm:text-2xl"
-                    }`}
+                        ? "  py-2 lg:text-3xl sm:text-lg"
+                        : "text-black lg:text-2xl sm:text-lg"
+                    } lg:w-2/6 sm:w-5/6 font-bold`}
                   >
-                    #{index + 1}
+                    {user.name}
+                  </p>
+                  {/* <p className="w-2/3  truncate">{user.email}</p> */}
+                  <p className=" flex justify-center gap-1 items-center">
+                    <span className="text-blue-600 flex justify-center items-center gap-2 lg:text-5xl sm:text-3xl press">
+                      {user.points}
+                    </span>{" "}
+                    <AiTwotoneStar size={38} />
+                    {currentUser.role === "Admin" && (
+                      <Popup
+                        trigger={
+                          <button className="mx-5 outline-none">
+                            <AiOutlineSetting size={26} />
+                          </button>
+                        }
+                        modal
+                        nested
+                      >
+                        {(close) => (
+                          <div className="  px-20 w-auto flex justify-center items-center flex-col  py-8 rounded-md">
+                            <EditUser close={close} user={user} index={index} />
+                          </div>
+                        )}
+                      </Popup>
+                    )}
                   </p>
                 </div>
-                <p
-                  className={`${
-                    index === 0
-                      ? "py-2 lg:text-3xl sm:text-lg"
-                      : index === 1
-                      ? " py-2 lg:text-3xl sm:text-lg"
-                      : index === 2
-                      ? "  py-2 lg:text-3xl sm:text-lg"
-                      : "text-black lg:text-2xl sm:text-lg"
-                  } lg:w-2/6 sm:w-5/6 font-bold poop`}
-                >
-                  {user.name}
-                </p>
-                {/* <p className="w-2/3  truncate">{user.email}</p> */}
-                <p className=" flex justify-center gap-1 items-center">
-                  <span className="text-blue-600 flex justify-center items-center gap-2 lg:text-5xl sm:text-3xl press">
-                    {user.points}
-                  </span>{" "}
-                  <AiTwotoneStar size={38} />
-                  {currentUser.role === "Admin" && (
-                    <Popup
-                      trigger={
-                        <button className="mx-5 outline-none">
-                          <AiOutlineSetting size={26} />
-                        </button>
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="  px-20 w-auto flex justify-center items-center flex-col  py-8 rounded-md">
-                          <EditUser close={close} user={user} index={index} />
-                        </div>
-                      )}
-                    </Popup>
-                  )}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       )}
 
