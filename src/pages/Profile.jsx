@@ -15,13 +15,16 @@ const Profile = () => {
     }
     (async () => {
       const res = await axios.get(
-        `http://localhost:3001/users/currentUser/${currentUser}`
+        `https://gdsc-au-server.onrender.com/users/currentUser/${currentUser}`
       );
       setUser(res.data);
       setUpdateUser({
         ...updateUser,
         email: res.data.email,
         name: res.data.name,
+        phone: res.data.phone,
+        branch: res.data.branch,
+        sem: res.data.sem,
       });
     })();
   }, []);
@@ -45,9 +48,12 @@ const Profile = () => {
     e.preventDefault();
 
     try {
-      await axios.patch(`http://localhost:3001/users/updateUser/${user._id}`, {
-        ...updateUser,
-      });
+      await axios.patch(
+        `https://gdsc-au-server.onrender.com/users/updateUser/${user._id}`,
+        {
+          ...updateUser,
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +61,9 @@ const Profile = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3001/users/deleteUser/${user._id}`);
+      await axios.delete(
+        `https://gdsc-au-server.onrender.com/users/deleteUser/${user._id}`
+      );
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -67,13 +75,7 @@ const Profile = () => {
       <Navbar />
 
       <div className="lg:w-5/12 sm:hidden h-full gap-1 flex-col   justify-center items-center lg:flex">
-        <img
-          src="https://imgs.search.brave.com/9A5-7hWDwCh-3_iPxFz8CAP2V-LmLxc0GMlJdnYhe6U/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9sb2dv/ZGl4LmNvbS9sb2dv/LzMwMzU0OS5qcGc"
-          alt="logo"
-          className="w-64 h-64 object-contain rounded-full my-4"
-        />
-
-        <p className="press my-5 text-4xl flex flex-col justify-center items-center text-center ">
+        <p className="press my-5 text-6xl flex flex-col justify-center items-center text-center ">
           <span className=" text-9xl text-blue-500 ">{user.points}</span> PTs
         </p>
       </div>

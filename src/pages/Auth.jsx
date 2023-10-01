@@ -5,14 +5,19 @@ import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const navigate = useNavigate();
+
   const [auth, setAuth] = React.useState("REGISTER");
   const [user, setUser] = React.useState({
     name: "",
     email: "",
     password: "",
+    phone: "",
+    branch: "",
+    sem: "",
+    points: 0,
+    role: "User",
   });
   const [error, setError] = React.useState("");
-  console.log(user);
   const toggleAuth = () => {
     if (auth === "REGISTER") {
       setAuth("LOGIN");
@@ -45,9 +50,12 @@ const Auth = () => {
 
     if (auth === "REGISTER") {
       try {
-        const res = await axios.post("http://localhost:3001/auth/register", {
-          ...user,
-        });
+        const res = await axios.post(
+          "https://gdsc-au-server.onrender.com/auth/register",
+          {
+            ...user,
+          }
+        );
         setError(res.data.msg);
         console.log(res.data);
         // setAuth("LOGIN");
@@ -57,9 +65,12 @@ const Auth = () => {
     }
     if (auth === "LOGIN") {
       try {
-        const resxponse = await axios.post("http://localhost:3001/auth/login", {
-          ...user,
-        });
+        const resxponse = await axios.post(
+          "https://gdsc-au-server.onrender.com/auth/login",
+          {
+            ...user,
+          }
+        );
         setError(resxponse.data.msg);
         localStorage.setItem("userID", resxponse.data.userID);
 
